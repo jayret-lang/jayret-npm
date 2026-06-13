@@ -1,0 +1,5 @@
+.jarret
+.pyret
+*.sw*
+node_modules
+jarret-lang
