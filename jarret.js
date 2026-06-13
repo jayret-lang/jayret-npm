@@ -20,7 +20,7 @@ const usages = [
     header: 'Basic Usage',
     content: [
       '  $ cat hello.jrt',
-      '  void main() { print("Ahoy world!"); }',
+      '  void main() \\{ print("Ahoy world!"); \\}',
       '  $ jarret {underline hello.jrt}',
       '  Starting Parley server...',
       '  1/1 modules compiled',
