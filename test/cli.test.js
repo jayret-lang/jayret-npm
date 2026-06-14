@@ -16,7 +16,7 @@ const parse_file_for_expected_std = (f) => {
   let extraArgs = [];
 
   // The marker may appear at line start (Pyret `###>` is a comment) or
-  // after a `//` (Jarret line comment). Strip any leading whitespace
+  // after a `//` (Jayret line comment). Strip any leading whitespace
   // and one optional `// ` so .arr and .jrt tests share the harness.
   const stripLead = (line) => line.replace(/^\s*\/\/\s*/, '').replace(/^\s*/, '');
 
@@ -69,7 +69,7 @@ describe("IO Tests", () => {
       const {stdioExpected, stdInToInject, stderrExpected, compilestderrExpected, extraArgs} = parse_file_for_expected_std(f);
 
       test(`it should return io that is expected: ${stdioExpected}`, () => {
-        const args = [ "jarret.js", ...extraArgs, f ];
+        const args = [ "jayret.js", ...extraArgs, f ];
         const pyretProcess = cp.spawnSync(
           "node",
           args,

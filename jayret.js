@@ -2,26 +2,26 @@
 
 const usage = require('command-line-usage');
 const commandLineArgs = require('command-line-args');
-const jarretClient = require('./client-lib');
+const jayretClient = require('./client-lib');
 const path = require('path');
 const fs = require('fs');
 const stripAnsi = require('strip-ansi');
 const {version} = require("./package.json");
 
-const compilerPath = path.join(__dirname, "jarret-lang", "build", "phaseA", "pyret.jarr");
+const compilerPath = path.join(__dirname, "jayret-lang", "build", "phaseA", "pyret.jarr");
 
 const usages = [
   {
-    header: `Jarret Command-line Interface v${version}`,
+    header: `Jayret Command-line Interface v${version}`,
     content:
-      `The {bold jarret} command compiles and runs Jarret programs. Jarret is a Java-flavored surface syntax for Pyret; the same command also accepts {underline .arr} Pyret sources. It helps manage a compile server that runs in the background to speed up compilation jobs, and manages state in a project's working directory to cache compiled files.`
+      `The {bold jayret} command compiles and runs Jayret programs. Jayret is a Java-flavored surface syntax for Pyret; the same command also accepts {underline .arr} Pyret sources. It helps manage a compile server that runs in the background to speed up compilation jobs, and manages state in a project's working directory to cache compiled files.`
   },
   {
     header: 'Basic Usage',
     content: [
       '  $ cat hello.jrt',
       '  void main() \\{ print("Ahoy world!"); \\}',
-      '  $ jarret {underline hello.jrt}',
+      '  $ jayret {underline hello.jrt}',
       '  Starting Parley server...',
       '  1/1 modules compiled',
       '  Ahoy world!',
@@ -32,15 +32,15 @@ const usages = [
 
       '',
       '',
-      '  The file is compiled into a standalone JavaScript file with the {underline .jarr} extension under {underline .jarret/}:',
+      '  The file is compiled into a standalone JavaScript file with the {underline .jarr} extension under {underline .jayret/}:',
       '',
 
-      '  $ node .jarret/{underline hello.jarr}',
+      '  $ node .jayret/{underline hello.jarr}',
       '  Ahoy world!',
 
       '',
       '',
-      '  See https://github.com/ulysses4ever/jarret-lang for the language reference and example programs.',
+      '  See https://github.com/ulysses4ever/jayret-lang for the language reference and example programs.',
     ]
   },
   {
@@ -61,7 +61,7 @@ const usages = [
         alias: 'p',
         typeLabel: "{underline <file>.jrt}",
         defaultOption: true,
-        description: "This is the default option, so using the flag is optional. Specifies the path to the program to compile (a {underline .jrt} Jarret source or a {underline .arr} Pyret source). Will start a server if one isn't running. Generates a standalone compiled file based on {bold --outfile}, and immediately executes it. The exit code is non-zero if the file fails to compile, and is the exit code of the executed program if it compiles successfully."
+        description: "This is the default option, so using the flag is optional. Specifies the path to the program to compile (a {underline .jrt} Jayret source or a {underline .arr} Pyret source). Will start a server if one isn't running. Generates a standalone compiled file based on {bold --outfile}, and immediately executes it. The exit code is non-zero if the file fails to compile, and is the exit code of the executed program if it compiles successfully."
       },
       {
         name: 'outfile',
@@ -108,30 +108,30 @@ const usages = [
     ]
   },
   {
-    header: 'The .jarret/ Directory',
+    header: 'The .jayret/ Directory',
     content: [
-      'The first time you run the {bold jarret} command in a directory, it creates a {underline .jarret/} directory there.',
+      'The first time you run the {bold jayret} command in a directory, it creates a {underline .jayret/} directory there.',
       '',
-      'This directory is used to store the compiled versions of individual source files in your project. They will appear in {underline .jarret/compiled}.',
+      'This directory is used to store the compiled versions of individual source files in your project. They will appear in {underline .jayret/compiled}.',
       '',
-      'Each directory in which you run {bold jarret} will have this sub-directory created. In general, you should never need to look in or modify the directory.'
+      'Each directory in which you run {bold jayret} will have this sub-directory created. In general, you should never need to look in or modify the directory.'
     ]
   },
   {
     header: 'The Compile Server',
     content: [
-      `The compiler will not run without a running server. The {bold jarret} command tries to connect to a compile server on the specified port on startup, and if it cannot, starts one before continuing. The server accepts requests to start and stop compile jobs, and to shut down, and sends messages indicating compile status and when the job is complete.`,
+      `The compiler will not run without a running server. The {bold jayret} command tries to connect to a compile server on the specified port on startup, and if it cannot, starts one before continuing. The server accepts requests to start and stop compile jobs, and to shut down, and sends messages indicating compile status and when the job is complete.`,
       '',
       `The default mode of operation is to have a single compile server running per user. If multiple compile jobs are sent at the same time, they are queued and processed in FIFO order.`,
       '',
-      `If the server gets stuck, you can manually clean up its socket file in {underline /tmp/parley-<username>/}. The server runs a file called {underline pyret.jarr} (the Pyret compiler bundle that also hosts the Jarret translator), so:`,
+      `If the server gets stuck, you can manually clean up its socket file in {underline /tmp/parley-<username>/}. The server runs a file called {underline pyret.jarr} (the Pyret compiler bundle that also hosts the Jayret translator), so:`,
       '',
       '$ {bold ps} aux | {bold grep} {underline pyret.jarr}'
     ]
   },
   {
     header: 'Support and Contact',
-    content: 'Report Jarret issues at https://github.com/ulysses4ever/jarret-lang/issues. Jarret is a fork of brownplt/pyret-lang; underlying compiler issues may belong upstream.'
+    content: 'Report Jayret issues at https://github.com/ulysses4ever/jayret-lang/issues. Jayret is a fork of brownplt/pyret-lang; underlying compiler issues may belong upstream.'
   }
 ];
 
@@ -146,7 +146,7 @@ const optionDefinitions = [
 
   { name: 'compiler', type: String, defaultValue: compilerPath, group: "client" },
   { name: 'global-parley', type: String, defaultValue: "~/.parley/" },
-  { name: 'local-parley', type: String, defaultValue: ".jarret" },
+  { name: 'local-parley', type: String, defaultValue: ".jayret" },
 
   { name: 'program', alias: 'p', type: String, group: "pyret-options", defaultOption: true },
 
@@ -179,7 +179,7 @@ function printUsage() {
 }
 
 function printVersion() {
-  console.log(`Jarret Command-line Interface v${version}`);
+  console.log(`Jayret Command-line Interface v${version}`);
 }
 
 try {
@@ -209,4 +209,4 @@ if(!options["pyret-options"]["outfile"] && options["pyret-options"]["program"]) 
   }
 }
 
-jarretClient.start(options);
+jayretClient.start(options);
