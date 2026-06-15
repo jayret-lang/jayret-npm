@@ -6,7 +6,7 @@ set -e
 # the compiler + Jayret translator that the wrapper invokes.
 
 rm -rf jayret-lang
-git clone --single-branch --branch jayret-v0.1.0 https://github.com/ulysses4ever/jayret-lang.git
+git clone --single-branch --branch jayret-v0.1.0 https://github.com/jayret-lang/jayret-lang.git
 
 pushd jayret-lang
 npm install

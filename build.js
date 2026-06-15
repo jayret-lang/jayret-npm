@@ -9,7 +9,7 @@ function checkErr(result) {
 }
 
 if (!fs.existsSync("jayret-lang")) {
-  var cloneResult = childProcess.spawnSync("git", ["clone", "--single-branch", "--branch", "jayret-v0.1.0", "https://github.com/ulysses4ever/jayret-lang.git"], {'stdio': 'inherit'});
+  var cloneResult = childProcess.spawnSync("git", ["clone", "--single-branch", "--branch", "jayret-v0.1.0", "https://github.com/jayret-lang/jayret-lang.git"], {'stdio': 'inherit'});
   checkErr(cloneResult);
 }
 

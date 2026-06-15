@@ -40,7 +40,7 @@ const usages = [
 
       '',
       '',
-      '  See https://github.com/ulysses4ever/jayret-lang for the language reference and example programs.',
+      '  See https://github.com/jayret-lang/jayret-lang for the language reference and example programs.',
     ]
   },
   {
@@ -131,7 +131,7 @@ const usages = [
   },
   {
     header: 'Support and Contact',
-    content: 'Report Jayret issues at https://github.com/ulysses4ever/jayret-lang/issues. Jayret is a fork of brownplt/pyret-lang; underlying compiler issues may belong upstream.'
+    content: 'Report Jayret issues at https://github.com/jayret-lang/jayret-lang/issues. Jayret is a fork of brownplt/pyret-lang; underlying compiler issues may belong upstream.'
   }
 ];
 

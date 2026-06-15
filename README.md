@@ -1,12 +1,12 @@
 # jayret-npm
 
 NPM package for the command-line interface of the [Jayret programming
-language](https://github.com/ulysses4ever/jayret-lang) — a
+language](https://github.com/jayret-lang/jayret-lang) — a
 Java-flavored surface syntax for [Pyret](https://pyret.org).
 
 When installing this package, the Jayret compiler is cloned and built
 from a pinned release tag of
-[ulysses4ever/jayret-lang](https://github.com/ulysses4ever/jayret-lang)
+[jayret-lang/jayret-lang](https://github.com/jayret-lang/jayret-lang)
 (currently `jayret-v0.1.0`). The same `jayret` command compiles both
 `.jrt` (Jayret) and `.arr` (Pyret) sources, since Jayret reuses Pyret's
 full compiler and runtime.
@@ -45,6 +45,6 @@ This package is a fork of [brownplt/pyret-npm](https://github.com/brownplt/pyret
 ## Issues
 
 Report Jayret issues at
-[ulysses4ever/jayret-lang](https://github.com/ulysses4ever/jayret-lang/issues).
+[jayret-lang/jayret-lang](https://github.com/jayret-lang/jayret-lang/issues).
 Underlying Pyret-compiler issues likely belong at
 [brownplt/pyret-lang](https://github.com/brownplt/pyret-lang/issues).

@@ -1,6 +1,6 @@
 {
   "name": "jayret-npm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The CLI for the Jayret programming language (a Java-flavored surface syntax for Pyret)",
   "files": [
     "jayret.js",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ulysses4ever/jayret-npm.git"
+    "url": "git+https://github.com/jayret-lang/jayret-npm.git"
   },
   "bin": {
     "jayret": "jayret.js"
@@ -32,9 +32,9 @@
   "author": "Artem Pelenitsyn",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ulysses4ever/jayret-lang/issues"
+    "url": "https://github.com/jayret-lang/jayret-lang/issues"
   },
-  "homepage": "https://github.com/ulysses4ever/jayret-lang#readme",
+  "homepage": "https://github.com/jayret-lang/jayret-lang#readme",
   "devDependencies": {
     "glob": "^10.0.0",
     "jest": "^30.0.0"
