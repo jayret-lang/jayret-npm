@@ -1,5 +1,12 @@
 # jayret-npm
 
+> **Notice.** This is an independent derivative of
+> [pyret-npm](https://github.com/brownplt/pyret-npm), originally by
+> Joe Gibbs Politz and others, used under the Apache License 2.0.
+> It is **not affiliated with, endorsed by, or sponsored by**
+> the Pyret project, Brown PLT, or the original authors.
+> See [`NOTICE`](./NOTICE) for full attribution.
+
 NPM package for the command-line interface of the [Jayret programming
 language](https://github.com/jayret-lang/jayret-lang) — a
 Java-flavored surface syntax for [Pyret](https://pyret.org).
